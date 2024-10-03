@@ -88,7 +88,7 @@ function App() {
     setDescription("");
     setCategory("");
     setDate("");
-    handleSnack("info", "Cleared all submitting fields");
+
   };
   //While the reset button for the Report section has been clicked , reset all the fields in the Report(show) section
   const handleResetReport = () => {
@@ -97,12 +97,11 @@ function App() {
       return;
     }
     //check condition so if reset button has been clicked close the report
-    if ((month || year) && showReport == true) {
+    if ((month || year) && showReport === true) {
       setShowReport(!showReport);
     }
     setMonth("");
     setYear("");
-    handleSnack("info", "Cleared all reporting fields");
   };
   //when the show report button has been clicked , toggle the show report state to show the report
   const handleShowReport = () => {
@@ -114,19 +113,16 @@ function App() {
           return;
         }
       }
-      handleSnack("error", "Missing a feature");
       return;
     }
     setShowReport(!showReport);
   };
   //if a snack/toast has been invoked , check its severity and message oto display it in the correct way
-  const handleSnack = (severity, message) => {
-  };
+
   //when the handle submit button has been clicked , collect all the input data from the submit section and as an item , add it to the database
   const handleSubmit = () => {
     //checks for missing a feature and displays a snack for it accordingly
     if (!numOfCalories || !description || !category || !date) {
-      handleSnack("error", "Missing a feature");
       return;
     }
     //creates item to submit into db
@@ -144,7 +140,7 @@ function App() {
           console.log(message);
           handleReset();
         })
-        .then(() => handleSnack("success", "Submitted Successfully", true))
+
         .catch((error) => {
           console.error(error);
         });
