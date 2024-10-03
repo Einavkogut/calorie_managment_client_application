@@ -1,15 +1,23 @@
 {
-  "name": "${PROJECT_NAME}",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "name": "client_side",
+  "version": "1.0.0",
+  "description": "calorie-management",
+  "main": "index.js",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "devDependencies": {
-    "prettier": "^3.3.1",
-    "vite": "^5.1.6"
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "dependencies": {
+    "@mui/icons-material": "^6.1.1",
+    "@mui/material": "^6.1.1",
+    "@mui/x-charts": "^7.18.0",
+    "@mui/x-date-pickers": "^7.18.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.2",
+    "react-scripts": "^5.0.1",
+    "web-vitals": "^4.2.3"
   }
 }
