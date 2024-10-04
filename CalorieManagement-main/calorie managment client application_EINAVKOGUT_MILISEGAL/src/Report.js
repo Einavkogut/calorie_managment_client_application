@@ -1,5 +1,5 @@
-//Einav kogut :318902285
-//Mili segal :208297333
+//Einav Kogut: 318902285
+//Mili Segal: 208297333
 import { React, useState, useEffect } from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -8,15 +8,15 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-//idb.js is the js library for handling the indexDB database
+// idb.js is the JS library for handling the IndexedDB database
 import idb from "./idb.js";
 
-//initialize Report component
+// Initialize Report component
 function Report(props) {
   const [filteredItems, setFilteredItems] = useState([]);
   const { month, year, handleSubmit } = props;
 
-  //use effect for rendering everytime handleSubmit has changed for dynamic experience
+  // useEffect for rendering every time handleSubmit, month, or year has changed for a dynamic experience
   useEffect(() => {
     // Function to generate report
     async function generateReport(month, year) {
@@ -37,7 +37,7 @@ function Report(props) {
         });
 
         // Update state with the filtered items
-        await setFilteredItems(filteredItems);
+        setFilteredItems(filteredItems);
         console.log(filteredItems);
       } catch (error) {
         console.error("Error generating report:", error);
@@ -46,16 +46,16 @@ function Report(props) {
 
     // Call generateReport function
     generateReport(month, year);
-  }, [handleSubmit]);
+  }, [handleSubmit, month, year]); // Add month and year to dependencies
 
   return (
       <div className="Report">
-        {/**generates the tableContainer */}
+        {/** Generates the TableContainer */}
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
             <TableHead>
               <TableRow>
-                {/**Report columns would be Id,Description,Number of Calories,Date */}
+                {/** Report columns would be Id, Description, Number of Calories, Date */}
                 <TableCell align="left">Id</TableCell>
                 <TableCell align="left">Description</TableCell>
                 <TableCell align="left">Number of Calories</TableCell>
@@ -64,7 +64,7 @@ function Report(props) {
               </TableRow>
             </TableHead>
             <TableBody>
-              {/**Assigning values to table cells */}
+              {/** Assigning values to table cells */}
               {filteredItems.map((item) => (
                   <TableRow
                       key={item.id}
